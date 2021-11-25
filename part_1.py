@@ -24,7 +24,6 @@ def calculate(operation, f_num, s_num):
     else:
         raise Exception("Unexpected operator!")
 
-
 def process_goto(line_to_process):
     if line_to_process[1] == "calc":
         operator = line_to_process[2]
