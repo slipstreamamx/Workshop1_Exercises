@@ -19,9 +19,10 @@ def calculate(operation, f_num, s_num):
         answer = int(f_num * s_num)
     elif operation == "/":
         answer = int(f_num / s_num)
+    elif operation == "%":
+        answer = int(f_num % s_num)
     else:
-        return int(answer)
-
+        raise Exception("Unexpected operator!")
 
 def process_goto(line_to_process):
     if line_to_process[1] == "calc":
