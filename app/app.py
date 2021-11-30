@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from werkzeug.wrappers import request
 
 list_of_films = []
 id = 0
@@ -21,5 +22,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template("index.html", message=message, list_of_films=list_of_films);
+
+@app.route('/rating/<rating>')
+def get_rating(rating):
+    filtered_list =[]
+    for list in list_of_films:
+        if list["rating"] == rating:
+            filtered_list.append(list)
+    return render_template("index.html", message=message, list_of_films=filtered_list)
 
 
